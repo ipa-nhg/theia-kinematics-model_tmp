@@ -1,0 +1,12 @@
+node_modules
+.browser_modules
+lib
+*.log
+*-app/*
+!*-app/package.json
+build
+ros-dsl/*.zip
+rossystem-dsl/*.zip
+.idea
+ws/src-gen/*
+ws/components/*
