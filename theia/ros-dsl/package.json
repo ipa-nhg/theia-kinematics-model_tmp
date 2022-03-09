@@ -13,11 +13,12 @@
   ],
   "dependencies": {
     "@theia/core": "next",
-    "glob": "^7.1.4"
+    "glob": "^7.1.4",
+    "sprotty-theia": "next"
   },
   "devDependencies": {
     "rimraf": "latest",
-    "typescript": "^2.7.2"
+    "typescript": "latest"
   },
   "scripts": {
     "clean": "rimraf lib",

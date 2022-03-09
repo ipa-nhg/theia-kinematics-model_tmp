@@ -11,9 +11,6 @@
   "workspaces": [
     "ros-dsl",
     "browser-app",
-    "electron-app",
-    "ros-sprotty",
-    "rossystem-dsl",
-    "rossystem-sprotty"
+    "electron-app"
   ]
 }

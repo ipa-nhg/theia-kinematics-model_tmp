@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y maven git
 
 RUN adduser --disabled-password --gecos '' theia
 WORKDIR /home/theia
-RUN git clone https://github.com/ipa320/kinematics-model -b main
+#RUN git clone https://github.com/ipa320/kinematics-model -b main
+RUN git clone https://github.com/ipa-hsd/kinematics-model -b lsp_support
 # COPY --chown=theia:theia kinematics-model kinematics-model
 
 WORKDIR kinematics-model
@@ -16,17 +17,18 @@ RUN mvn clean package -U -DskipTests -f de.fraunhofer.ipa.kinematics.xtext.paren
 #ENV PATH /opt/ibm/java/jre/bin:/opt/ibm/java/bin/:$PATH
 
 WORKDIR /home/theia
+RUN ls
 COPY --chown=theia:theia theia theia-app
 
 RUN chown -R theia:theia /home/theia
-RUN apt-get update && apt-get install -y nodejs  npm libsecret-1-dev
-RUN npm install --global yarn -y
+RUN apt-get update && apt-get install -y nodejs npm #libsecret-1-dev
+RUN npm install --global -y yarn npm-conf compression-webpack-plugin
 #libx11-dev libxkbfile-dev -y
-
 USER theia
 WORKDIR /home/theia/theia-app
 RUN yarn cache clean
-RUN yarn install --ignore-engines --verbose
+RUN yarn install --verbose --ignore-engines
+
 
 EXPOSE 3000
 
